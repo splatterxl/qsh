@@ -5,7 +5,6 @@
     "moduleResolution": "node",
     "diagnostics": false,
     "extendedDiagnostics": false,
-    "sourceRoot": "/",
     "noEmitHelpers": true,
     "importHelpers": true,
     "baseUrl": "."

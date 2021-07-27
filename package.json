@@ -3,10 +3,9 @@
   "version": "0.0.1-dev",
   "description": "A syntaxically strict shell.",
   "main": "dist/index.js",
-  "bin": "",
+  "bin": "dist/index.js",
   "man": [
-    "docs/qsh.1",
-    "docs/intro.1"
+    "docs/qsh.1"
   ],
   "scripts": {
     "build": "tsc",

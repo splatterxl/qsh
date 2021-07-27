@@ -1,3 +1,7 @@
-echo Hello World;;
+#!/bin/sh
+echo Hell"o" World;
 
 # this should be ignored
+## this should
+  be ignored
+  too &##
