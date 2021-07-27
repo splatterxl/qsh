@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "diagnostics": false,
+    "extendedDiagnostics": false,
+    "sourceRoot": "/",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*", "lib/**/*"],
+  "compileOnSave": false,
+  "exclude": ["dist/**"],
+  "extends": "@splatterxl/tsconfig"
+}
