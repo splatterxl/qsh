@@ -1,3 +1,3 @@
 export enum SyntaxErrors {
-  UnnecessarySemicolon = 1001,
+  InvalidAST = 1001,
 }
