@@ -1,33 +1,3 @@
 # Changes since `root`
 
-- \[[`d3995da`](https://github.com/nearlySplat/qsh/commit/d3995dac65ba786b76e65bb9b54879c647e4c78e)\] build 5681c6bca93dddc557b3f77b0a3afc8de8d5027e
-- \[[`5032372`](https://github.com/nearlySplat/qsh/commit/503237219e0b93cce602ea05106028a92ca4ba5d)\] build bf488e2042ef2e3156e36ef4786c8593644a23d0
-- \[[`f191000`](https://github.com/nearlySplat/qsh/commit/f191000d514721de01cbf2cf44b65d9aa70c2e28)\] build 5f2052c1846b8193fec3e30266d3fdd7132d429f
-- \[[`f546597`](https://github.com/nearlySplat/qsh/commit/f54659794a5dc53ea799f4e1676c9b71bee87fc3)\] build 10bd63b37c6ad64e732bfc1d34382f680fa3de82
-- \[[`27ea984`](https://github.com/nearlySplat/qsh/commit/27ea984db23c3fc8a887c7c7ec98387d5d5b50fc)\] build 1a4be79af95d25b233d912bacb6f0aca1a64f697
-- \[[`2e0c9d5`](https://github.com/nearlySplat/qsh/commit/2e0c9d56df90c676bf13b8292746a608c9c214e3)\] build 1b03c6b9910fa9288eed20ccb26bdd1bd0ae63b7
-- \[[`43f02e8`](https://github.com/nearlySplat/qsh/commit/43f02e8595fe2dccb1d6a945fd4ad9c9e99d7614)\] build ead047b69a274a1f61f57a69b6a0f6c713e5e43b
-- \[[`ce537e2`](https://github.com/nearlySplat/qsh/commit/ce537e21fea01225246b58881bc599853bc2311a)\] build 0baf830cf80988026fd23873c9330bb45541c10d
-- \[[`cf0fad7`](https://github.com/nearlySplat/qsh/commit/cf0fad7d07077a259b6fc9b6d747b20bca68886b)\] build 10bd63b37c6ad64e732bfc1d34382f680fa3de82
-- \[[`6f871b2`](https://github.com/nearlySplat/qsh/commit/6f871b26a0d3328f814dab84334ad7403d8a750b)\] add commit messages
-- \[[`b319bee`](https://github.com/nearlySplat/qsh/commit/b319bee6d4cc5c928e748a11bc7099282601f818)\] build b5f16e803386f7c8b01171d87b6dd327e05fdc00
-- \[[`9e32adb`](https://github.com/nearlySplat/qsh/commit/9e32adb26fe525eb662498ee4f327b01b187d4b7)\] build 1dc73d0073b2c129347c1e3faa85d1008824fc4a
-- \[[`e02a6d2`](https://github.com/nearlySplat/qsh/commit/e02a6d2e4cf4d7daddae34e11bc0d1eb0d89314e)\] build 8619aed1b7223723d4ac854f8c9a8261c4a13549
-- \[[`1dbf55a`](https://github.com/nearlySplat/qsh/commit/1dbf55a47a19fd734c000c7ca57ac20532510eb1)\] build 7eaa9db51e6c5992ce91dc19ead90501bda48705
-- \[[`932579a`](https://github.com/nearlySplat/qsh/commit/932579ae4cc66766a0cdcf8293c1647ef404c09c)\] copy docs to build branch
-- \[[`6845659`](https://github.com/nearlySplat/qsh/commit/68456596015a83c834836359d3bbcc5617ea9bfc)\] Delete .github/workflows directory
-- \[[`a9751ec`](https://github.com/nearlySplat/qsh/commit/a9751ecf501d3e7b74c039d853ef8fe5ca54ca61)\] Update README.md
-- \[[`2f61e06`](https://github.com/nearlySplat/qsh/commit/2f61e06d90902e02162151bda2be2f94b9d071b4)\] build 05cb5c6ae47f70288f82336a74b7ac0917f775ef
-- \[[`c95695d`](https://github.com/nearlySplat/qsh/commit/c95695d5fb699037dd6e5ae0830a5154a3a73431)\] Update README.md
-- \[[`5910309`](https://github.com/nearlySplat/qsh/commit/5910309a7ca3cb83fa084f0986f24fb8ebedf46c)\] build 2036a48cd2c472a74af55538a5c9166eaa53a350
-- \[[`850cf76`](https://github.com/nearlySplat/qsh/commit/850cf76a66731768dfc409cfdfd44dd6e119bd0c)\] Update README.md
-- \[[`79df46c`](https://github.com/nearlySplat/qsh/commit/79df46c0c300744e9701f251a2595272ea059ae7)\] Update README.md
-- \[[`d2bfbda`](https://github.com/nearlySplat/qsh/commit/d2bfbdab470098292836fb7088eaa200479cefa5)\] Update README.md
-- \[[`5164fbc`](https://github.com/nearlySplat/qsh/commit/5164fbc8e2a05b5e81af0a48c316694222948747)\] build cd9fe9137b84d2d567d95299a065b932a7e7c787
-- \[[`2f4179e`](https://github.com/nearlySplat/qsh/commit/2f4179e3379700c83f078e2f4d3d8afaa0b1a453)\] Revert "Revert "init build branch""
-- \[[`aba4a0e`](https://github.com/nearlySplat/qsh/commit/aba4a0e2d5524905bbfc6f14b3bb7e624582cd2b)\] Revert "init build branch"
-- \[[`7f37488`](https://github.com/nearlySplat/qsh/commit/7f37488dea75022dcaad61e509ee680696858e79)\] Merge branch 'trunk' of github.com:nearlySplat/qsh into build
-- \[[`4c40814`](https://github.com/nearlySplat/qsh/commit/4c40814e6dec551278d5e18064b80b8ec8d16e3b)\] init build branch
-- \[[`3670247`](https://github.com/nearlySplat/qsh/commit/3670247c0a881a0e8dc9be6e6aee59a85e97a4b5)\] ci: add build workflow
-- \[[`8cc3c6b`](https://github.com/nearlySplat/qsh/commit/8cc3c6b2e7122815fd5bc2017b9926cbd81d40cb)\] feat: now it runs the files
-- \[[`b34d25e`](https://github.com/nearlySplat/qsh/commit/b34d25e9f072c94af4a1aff6d0129a2e31b07422)\] chore: init
+- \[[`a65df38`](https://github.com/nearlySplat/qsh/commit/a65df382a1752daca28a0594ccb8c1bd6c882c55)\] ci(changelog): fetch tags before generating log

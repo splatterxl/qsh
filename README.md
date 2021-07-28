@@ -18,3 +18,4 @@ Changelog:
 - Updated for commit [`5681c6bca93dddc557b3f77b0a3afc8de8d5027e`](https://github.com/nearlysplat/qsh/commit/5681c6bca93dddc557b3f77b0a3afc8de8d5027e) (changelog from ref, rather than at ref)
 - Updated for commit [`d0113dc172eb6801d22f94cc65038c0557eee407`](https://github.com/nearlysplat/qsh/commit/d0113dc172eb6801d22f94cc65038c0557eee407) (ci: add changelog script)
 - Updated for release (commit [](https://github.com/nearlysplat/qsh/commit/1dc73d0073b2c129347c1e3faa85d1008824fc4a))
+- Updated for commit [`a65df382a1752daca28a0594ccb8c1bd6c882c55`](https://github.com/nearlysplat/qsh/commit/a65df382a1752daca28a0594ccb8c1bd6c882c55) (ci(changelog): fetch tags before generating log)
