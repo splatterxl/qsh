@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`6048893`](https://github.com/nearlySplat/qsh/commit/6048893ee0bd65929cffeb78e4e06ffea5c536ce)\] ci: show status
+- \[[`49f82c9`](https://github.com/nearlySplat/qsh/commit/49f82c94a0a591d0eb328cab537d23860df4911a)\] ci: rename shitfuckery

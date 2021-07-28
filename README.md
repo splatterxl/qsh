@@ -22,3 +22,4 @@ Changelog:
 - Updated for commit [`25a582dcdf4f057acc9c267ba33247609fb61bf5`](https://github.com/nearlysplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5) (ci: add build workflow)
 - Updated for commit [`25a582dcdf4f057acc9c267ba33247609fb61bf5`](https://github.com/nearlysplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5) (ci: add build workflow)
 - Updated for commit [`6048893ee0bd65929cffeb78e4e06ffea5c536ce`](https://github.com/nearlysplat/qsh/commit/6048893ee0bd65929cffeb78e4e06ffea5c536ce) (ci: show status)
+- Updated for commit [`49f82c94a0a591d0eb328cab537d23860df4911a`](https://github.com/nearlysplat/qsh/commit/49f82c94a0a591d0eb328cab537d23860df4911a) (ci: rename shitfuckery)
