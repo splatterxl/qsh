@@ -12,3 +12,4 @@ Changelog:
 - Updated for commit [`ead047b69a274a1f61f57a69b6a0f6c713e5e43b`](https://github.com/nearlysplat/qsh/commit/ead047b69a274a1f61f57a69b6a0f6c713e5e43b) (update changelog)
 - Updated for commit [`1b03c6b9910fa9288eed20ccb26bdd1bd0ae63b7`](https://github.com/nearlysplat/qsh/commit/1b03c6b9910fa9288eed20ccb26bdd1bd0ae63b7) (prettify changelog)
 - Updated for commit [`1a4be79af95d25b233d912bacb6f0aca1a64f697`](https://github.com/nearlysplat/qsh/commit/1a4be79af95d25b233d912bacb6f0aca1a64f697) (add changelog)
+- Updated for commit [`10bd63b37c6ad64e732bfc1d34382f680fa3de82`](https://github.com/nearlysplat/qsh/commit/10bd63b37c6ad64e732bfc1d34382f680fa3de82) (ci: move pnpm above node)
