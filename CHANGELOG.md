@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`a65df38`](https://github.com/nearlySplat/qsh/commit/a65df382a1752daca28a0594ccb8c1bd6c882c55)\] ci(changelog): fetch tags before generating log
+- \[[`25a582d`](https://github.com/nearlySplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5)\] ci: add build workflow
