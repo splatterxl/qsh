@@ -4,3 +4,4 @@ Changelog:
 - Updated for commit [`2036a48cd2c472a74af55538a5c9166eaa53a350`](https://github.com/nearlysplat/qsh/commits/2036a48cd2c472a74af55538a5c9166eaa53a350)
 - Updated for commit [`05cb5c6ae47f70288f82336a74b7ac0917f775ef`](https://github.com/nearlysplat/qsh/commits/05cb5c6ae47f70288f82336a74b7ac0917f775ef)
 - Updated for commit [`7eaa9db51e6c5992ce91dc19ead90501bda48705`](https://github.com/nearlysplat/qsh/commits/7eaa9db51e6c5992ce91dc19ead90501bda48705)
+- Updated for commit [`8619aed1b7223723d4ac854f8c9a8261c4a13549`](https://github.com/nearlysplat/qsh/commits/8619aed1b7223723d4ac854f8c9a8261c4a13549)
