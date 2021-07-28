@@ -1,4 +1,4 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
-- \[[`94ea450`](https://github.com/nearlySplat/qsh/commit/94ea45085909f7d693aec32c4f218bddb7716e81)\] ci: add build workflow
+- \[[`8052ea0`](https://github.com/nearlySplat/qsh/commit/8052ea0c0c77f1451421c7762300f472e6028f09)\] ci: add build workflow
