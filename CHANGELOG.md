@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`49f82c9`](https://github.com/nearlySplat/qsh/commit/49f82c94a0a591d0eb328cab537d23860df4911a)\] ci: rename shitfuckery
+- \[[`99f60f3`](https://github.com/nearlySplat/qsh/commit/99f60f33f4eea6d71c0120bb7b9ed098fd3f2d99)\] ci: will this work
