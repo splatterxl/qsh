@@ -24,3 +24,4 @@ Changelog:
 - Updated for commit [`6048893ee0bd65929cffeb78e4e06ffea5c536ce`](https://github.com/nearlysplat/qsh/commit/6048893ee0bd65929cffeb78e4e06ffea5c536ce) (ci: show status)
 - Updated for commit [`49f82c94a0a591d0eb328cab537d23860df4911a`](https://github.com/nearlysplat/qsh/commit/49f82c94a0a591d0eb328cab537d23860df4911a) (ci: rename shitfuckery)
 - Updated for commit [`99f60f33f4eea6d71c0120bb7b9ed098fd3f2d99`](https://github.com/nearlysplat/qsh/commit/99f60f33f4eea6d71c0120bb7b9ed098fd3f2d99) (ci: will this work)
+- Updated for commit [`2890a0ca07a8bd6a4743f749ae87139fa462e2b2`](https://github.com/nearlysplat/qsh/commit/2890a0ca07a8bd6a4743f749ae87139fa462e2b2) (ci: no it won't)
