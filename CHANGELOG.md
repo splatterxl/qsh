@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`74eed52`](https://github.com/nearlySplat/qsh/commit/74eed523f368204a4c6bf0db3a0e838283fb2706)\] ci: i have no idea what i;m doing
+- \[[`4d2a702`](https://github.com/nearlySplat/qsh/commit/4d2a702e88d9a312aa38aa0b7523f0fc77fa3ac5)\] ci: add build workflow
