@@ -20,3 +20,4 @@ Changelog:
 - Updated for release (commit [](https://github.com/nearlysplat/qsh/commit/1dc73d0073b2c129347c1e3faa85d1008824fc4a))
 - Updated for commit [`a65df382a1752daca28a0594ccb8c1bd6c882c55`](https://github.com/nearlysplat/qsh/commit/a65df382a1752daca28a0594ccb8c1bd6c882c55) (ci(changelog): fetch tags before generating log)
 - Updated for commit [`25a582dcdf4f057acc9c267ba33247609fb61bf5`](https://github.com/nearlysplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5) (ci: add build workflow)
+- Updated for commit [`25a582dcdf4f057acc9c267ba33247609fb61bf5`](https://github.com/nearlysplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5) (ci: add build workflow)
