@@ -1,5 +1,5 @@
 name: Build code
-on: 
+on:
   push:
     branches: ['trunk']
   release:
@@ -15,20 +15,20 @@ jobs:
         uses: actions/checkout@v2.3.4
         with:
           fetch-depth: 0
-    
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.0.1
         with:
           run_install: true
           version: '6.10.3'
-          
+
       - name: Install Node v16
         uses: actions/setup-node@v2
         with:
           node-version: 16
           cache: 'pnpm'
-          
-      - name: Build source and commit
+
+      - name: Build source, commit and publish
         run: |
           set -x
           git pull
@@ -37,14 +37,14 @@ jobs:
           tsc -p tsconfig.json
           mkdir tmp
           bash scripts/changelog.sh > CHANGELOG.md.new
-          mv docs tmp
+          mv docs package.json scripts/bin .npmignore tmp
           git checkout build
-          echo "New changelog:" | cat - CHANGELOG.md.new
           mv CHANGELOG.md.new CHANGELOG.md
-          mv tmp/docs .
+          rm -rf docs
+          mv tmp/* . -f
           rm -rf tmp
           git add .
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
-          git commit -m "build ${GITHUB_SHA}" --author "${GITHUB_ACTOR} <${GITHUB_ACTOR}@users.noreply.github.com>"
+          git commit -m "build ${GITHUB_SHA}" --author "${GITHUB_ACTOR} <${GITHUB_ACTOR}@users.noreply.github.com>" || true
           git push origin build
