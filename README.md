@@ -32,3 +32,4 @@ Changelog:
 - Updated for commit [`1a2d564dc7d7010b6c09dff492c97c1ef96ec616`](https://github.com/nearlysplat/qsh/commit/1a2d564dc7d7010b6c09dff492c97c1ef96ec616) (ci: add build workflow)
 - Updated for commit [`ae947d0ec2d2a2a4a7438db1533f78604eca658e`](https://github.com/nearlysplat/qsh/commit/ae947d0ec2d2a2a4a7438db1533f78604eca658e) (ci: add build workflow)
 - Updated for commit [`d45024b58c31a5be7501403ac3ee938e60d747c2`](https://github.com/nearlysplat/qsh/commit/d45024b58c31a5be7501403ac3ee938e60d747c2) (ci: add build workflow)
+- Updated for commit [`1ed7bb32417597268ad2b9811b085d05f35dfe71`](https://github.com/nearlysplat/qsh/commit/1ed7bb32417597268ad2b9811b085d05f35dfe71) (ci: add build workflow)
