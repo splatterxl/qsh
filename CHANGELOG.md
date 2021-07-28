@@ -1,3 +1,5 @@
+<!-- Human-readable ref: root, ref: root -->
+<!-- Date of ref: 2021-07-27 22:09:04 +0100 -->
 # Changes since `root`
 
-- \[[`1a2d564`](https://github.com/nearlySplat/qsh/commit/1a2d564dc7d7010b6c09dff492c97c1ef96ec616)\] ci: add build workflow
+- \[[`ae947d0`](https://github.com/nearlySplat/qsh/commit/ae947d0ec2d2a2a4a7438db1533f78604eca658e)\] ci: add build workflow
