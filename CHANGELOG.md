@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`25a582d`](https://github.com/nearlySplat/qsh/commit/25a582dcdf4f057acc9c267ba33247609fb61bf5)\] ci: add build workflow
+- \[[`6048893`](https://github.com/nearlySplat/qsh/commit/6048893ee0bd65929cffeb78e4e06ffea5c536ce)\] ci: show status
