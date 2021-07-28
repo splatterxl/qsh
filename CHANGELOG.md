@@ -1,3 +1,3 @@
 # Changes since `root`
 
-- \[[`2890a0c`](https://github.com/nearlySplat/qsh/commit/2890a0ca07a8bd6a4743f749ae87139fa462e2b2)\] ci: no it won't
+- \[[`74eed52`](https://github.com/nearlySplat/qsh/commit/74eed523f368204a4c6bf0db3a0e838283fb2706)\] ci: i have no idea what i;m doing
