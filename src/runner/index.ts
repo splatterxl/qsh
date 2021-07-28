@@ -5,7 +5,7 @@ import i18n from '../parser/i18n/en.json';
 import child_process from 'child_process';
 
 export async function run(
-  tree: AbstractSyntaxTree,
+  [{ children: tree }]: AbstractSyntaxTree,
   fileData: { contents: string; name: string }
 ) {
   for (const branch of tree) {
@@ -28,16 +28,24 @@ export async function run(
       process.exit(4);
     }
     const command = branch.children.shift();
-    const args = branch.children;
-    const proc = child_process.spawn(
-      command.value,
-      args.map((v) => v.value).filter((v) => v),
-      { stdio: 'inherit', argv0: command.value }
+    const args = branch.children.map((v) =>
+      v.type === BlockTypes.EnvironmentVariableReference
+        ? { ...v, value: process.env[v.value] }
+        : v
     );
-    await new Promise<void>((res) => {
-      proc.on('exit', () => {
-        res();
+    if (command.value === '%') {
+      eval(args[0].value);
+    } else {
+      const proc = child_process.spawn(
+        command.value,
+        args.map((v) => v.value).filter((v) => v),
+        { stdio: 'inherit', argv0: command.value }
+      );
+      await new Promise<void>((res) => {
+        proc.on('exit', () => {
+          res();
+        });
       });
-    });
+    }
   }
 }

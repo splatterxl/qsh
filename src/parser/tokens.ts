@@ -5,8 +5,12 @@ export enum Tokens {
 }
 
 export enum BlockTypes {
-  Block,
+  File, // haha yes I am stupid
   Statement,
   Command,
   String,
+
+  GenericVariableReference,
+  EnvironmentVariableReference,
+  ScopedVariableReference,
 }

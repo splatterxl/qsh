@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepare": "git config --local core.hooksPath .hooks/"
+    "prepare": "git config --local core.hooksPath .hooks/",
+    "test:parse": "node dist/parse test/index.qsh",
+    "test": "node dist test/index.qsh"
   },
   "author": "Splatterxl <splatterxl@outlook.ie>",
   "license": "AGPL-3.0-or-later",

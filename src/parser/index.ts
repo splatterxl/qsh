@@ -24,6 +24,7 @@ export class QshSyntaxError {
 }
 
 export class Block {
+  public id: number;
   public value?: string;
   constructor(
     public children: (Token | Block)[],
@@ -34,6 +35,10 @@ export class Block {
     this.parent = parent;
     this.type = type;
     Object.defineProperty(this, 'value', { enumerable: false });
+    Object.defineProperty(this, 'id', {
+      value: ~~(Math.random() * 10000),
+      enumerable: false,
+    });
   }
 
   resolve() {
@@ -44,6 +49,7 @@ export class Block {
         value: this.children.reduce((a, b) => a + b.value, ''),
       });
     }
+    return this;
   }
 }
 export class Token {
@@ -59,16 +65,22 @@ export function parse(
   data: string | Buffer
 ): [ast: Block[], errors: QshSyntaxError[], data: string, aborted: boolean] {
   let errors: QshSyntaxError[] = [];
-  function syntaxError(code: SyntaxErrors, fatal = false) {
+  function syntaxError(
+    code: SyntaxErrors,
+    fatal = false,
+    lineNum = line,
+    charStartNum = character - 1,
+    charEndNum = character
+  ) {
     errors.push(
       new QshSyntaxError(
         code,
         // @ts-ignore
         i18n[SyntaxErrors[code]],
         fatal,
-        line,
-        character - 1,
-        character + 1
+        lineNum,
+        charStartNum,
+        charEndNum
       )
     );
     if (fatal) abort = true;
@@ -81,26 +93,39 @@ export function parse(
     return arr[i];
   }
   function stepOut() {
-    // @ts-ignore
-    if (current.parent === result) return;
     current.resolve();
     current = current.parent;
+    function checkType() {
+      if (current.type === BlockTypes.Statement) {
+        current = current.parent;
+        checkType();
+      }
+    }
     return 1;
   }
   let current = <Block>(
-    push(new Block([], <Block>(<unknown>result), BlockTypes.Statement), result)
+    push(new Block([], <Block>(<unknown>result), BlockTypes.File), result)
   );
+
+  current = <Block>push(new Block([], current, BlockTypes.Statement));
+
+  let character = 0;
+  let line = 0;
+
   let isComment = false;
   let abort = false;
-  let line = 0;
-  let character = 0;
   let inQuotes = false;
   let quotes: '"' | "'" | '' = '';
+  let inVar = false;
+  let inVarBlock = false;
+
   for (const char of data.split('')) {
     character++;
     if (abort) break;
     switch (char) {
       case ';': {
+        if (inQuotes) break;
+        if (inVarBlock) syntaxError(SyntaxErrors.UnexpectedIdentifier);
         current.resolve();
         stepOut();
         current = <Block>(
@@ -123,11 +148,16 @@ export function parse(
         break;
       }
       case ' ': {
-        if (inQuotes) {
-          push(new Token(' ', Tokens.Character, current));
-        } else if (
-          [BlockTypes.String, BlockTypes.Command].includes(current.type)
-        ) {
+        if (!inVar) {
+          if (inQuotes) {
+            push(new Token(' ', Tokens.Character, current));
+          } else if (
+            [BlockTypes.String, BlockTypes.Command].includes(current.type)
+          ) {
+            stepOut();
+          }
+        } else {
+          inVar = false;
           stepOut();
         }
         break;
@@ -154,6 +184,39 @@ export function parse(
         } else {
           inQuotes = true;
           quotes = '"';
+        }
+        break;
+      }
+      case '@':
+      case '$': {
+        if (inVar) syntaxError(SyntaxErrors.UnexpectedIdentifier);
+        current = <Block>(
+          push(
+            new Block([], current, BlockTypes.GenericVariableReference),
+            current.children
+          )
+        );
+        if (char === '$') {
+          current.type = BlockTypes.EnvironmentVariableReference;
+        } else {
+          current.type = BlockTypes.ScopedVariableReference;
+        }
+        inVar = true;
+        break;
+      }
+      case '{': {
+        if (inVar) {
+          inVarBlock = true;
+        } else {
+          syntaxError(SyntaxErrors.UnexpectedIdentifier);
+        }
+        break;
+      }
+      case '}': {
+        if (!inVar) {
+          syntaxError(SyntaxErrors.UnexpectedIdentifier);
+        } else {
+          inVarBlock = false;
         }
         break;
       }
@@ -185,6 +248,7 @@ export function parseFile(name: string) {
 
 export function formatError(error: QshSyntaxError, data: string, file: string) {
   let line = data.split('\n')[error.line];
+  if (!line) line = data.split('\n')[error.line - 1];
   line =
     line.slice(0, error.char) +
     chalk.bold(line.slice(error.char, error.ends || line.length - 1)) +
@@ -192,9 +256,7 @@ export function formatError(error: QshSyntaxError, data: string, file: string) {
     '\n' +
     '\t    \t' +
     ' '.repeat(error.char) +
-    chalk.redBright(
-      '^'.repeat((error.ends || line.length - 1) - error.char - 1)
-    );
+    chalk.redBright('^'.repeat((error.ends || line.length - 1) - error.char));
 
   return chalk`{blueBright ${file.replace(/^\.\//g, '')}}{grey :}{yellow ${
     error.line
