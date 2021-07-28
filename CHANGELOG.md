@@ -1,5 +1,6 @@
 # Changes since `root`
 
+- \[[`d3995da`](https://github.com/nearlySplat/qsh/commit/d3995dac65ba786b76e65bb9b54879c647e4c78e)\] build 5681c6bca93dddc557b3f77b0a3afc8de8d5027e
 - \[[`5032372`](https://github.com/nearlySplat/qsh/commit/503237219e0b93cce602ea05106028a92ca4ba5d)\] build bf488e2042ef2e3156e36ef4786c8593644a23d0
 - \[[`f191000`](https://github.com/nearlySplat/qsh/commit/f191000d514721de01cbf2cf44b65d9aa70c2e28)\] build 5f2052c1846b8193fec3e30266d3fdd7132d429f
 - \[[`f546597`](https://github.com/nearlySplat/qsh/commit/f54659794a5dc53ea799f4e1676c9b71bee87fc3)\] build 10bd63b37c6ad64e732bfc1d34382f680fa3de82
