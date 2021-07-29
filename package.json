@@ -3,7 +3,9 @@
   "version": "0.0.1-dev",
   "description": "A syntaxically strict shell.",
   "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "bin": {
+    "qsh": "dist/index.js"
+  },
   "man": [
     "docs/qsh.1"
   ],
@@ -27,5 +29,17 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "tslib": "^2.3.0"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nearlySplat/qsh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nearlySplat/qsh/issues"
+  },
+  "homepage": "https://github.com/nearlySplat/qsh#readme"
 }
