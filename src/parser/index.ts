@@ -3,6 +3,7 @@ import { BlockTypes, Tokens } from './tokens';
 import { SyntaxErrors } from './errors';
 import i18n from './i18n/en.json';
 import chalk from 'chalk';
+import { ExitCodes } from '../exitcodes';
 
 export type AbstractSyntaxTree = Block[];
 
@@ -94,13 +95,9 @@ export function parse(
   }
   function stepOut() {
     current.resolve();
+    //console.log(current.id, current.parent.id);
     current = current.parent;
-    function checkType() {
-      if (current.type === BlockTypes.Statement) {
-        current = current.parent;
-        checkType();
-      }
-    }
+    //console.log(current.id, current.parent.id);
     return 1;
   }
   let current = <Block>(
@@ -240,8 +237,14 @@ export function parse(
 
 export function parseFile(name: string) {
   let path: string | number = name;
+  let data: Buffer;
   if (name === '-') path = 0;
-  const data = fs.readFileSync(path);
+  try {
+    data = fs.readFileSync(path);
+  } catch {
+    console.log(`${name}: no such file or directory`);
+    process.exit(ExitCodes.FileNotFound);
+  }
 
   return parse(data);
 }

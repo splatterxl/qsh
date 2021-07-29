@@ -1,6 +1,6 @@
 #!/bin/sh
 echo Hell"o" World"!" Home: ${HOME};
-
+echo j
 # this should be ignored
 ## this should
 #  be ignored

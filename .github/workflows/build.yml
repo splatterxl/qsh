@@ -28,23 +28,5 @@ jobs:
           node-version: 16
           cache: 'pnpm'
 
-      - name: Build source, commit and publish
-        run: |
-          set -x
-          git pull
-          git reset --hard origin/trunk
-          git log -n 10 --format="%h %s"
-          tsc -p tsconfig.json
-          mkdir tmp
-          bash scripts/changelog.sh > CHANGELOG.md.new
-          mv docs package.json scripts/bin .npmignore tmp
-          git checkout build
-          mv CHANGELOG.md.new CHANGELOG.md
-          rm -rf docs
-          mv tmp/* . -f
-          rm -rf tmp
-          git add .
-          git config user.name "github-actions[bot]"
-          git config user.email "actions@github.com"
-          git commit -m "build ${GITHUB_SHA}" --author "${GITHUB_ACTOR} <${GITHUB_ACTOR}@users.noreply.github.com>" || true
-          git push origin build
+      - name: Build source and commit
+        run: bash scripts/build.sh
