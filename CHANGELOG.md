@@ -1,6 +1,13 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`8598018`](https://github.com/nearlySplat/qsh/commit/8598018ca779b37a9a5c6eef6ca10742b60d3b86)\] feat: actual file not found handling
+- \[[`5751877`](https://github.com/nearlySplat/qsh/commit/5751877d4e0bc718d9baf43ceaa586356b4e05ae)\] 0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a.2
+- \[[`72e9c90`](https://github.com/nearlySplat/qsh/commit/72e9c9080fc06ea2b5da9edd69df0705b0bb0fde)\] 0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a
+- \[[`3b0d1b2`](https://github.com/nearlySplat/qsh/commit/3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a)\] 0.0.1-dev
+- \[[`6532503`](https://github.com/nearlySplat/qsh/commit/6532503fdd82505430ce19b5b2dd35b5049cbede)\] 0.0.1-dev.04c5ce50ab289adda409735e741817e210432458.13ef5029520dd5f1ca24c2c7dc11bb2501193657
+- \[[`13ef502`](https://github.com/nearlySplat/qsh/commit/13ef5029520dd5f1ca24c2c7dc11bb2501193657)\] 0.0.1-dev.04c5ce50ab289adda409735e741817e210432458
+- \[[`04c5ce5`](https://github.com/nearlySplat/qsh/commit/04c5ce50ab289adda409735e741817e210432458)\] chore: update bin to actually work
 - \[[`8f58191`](https://github.com/nearlySplat/qsh/commit/8f58191e808cbf397acff6e9f920d7f52bc70b2f)\] chore: add metadata to package.json
 - \[[`9f87837`](https://github.com/nearlySplat/qsh/commit/9f87837404ad41284f4d7f17d37cbadc1c65985d)\] update npm name to q.sh
 - \[[`4f848c6`](https://github.com/nearlySplat/qsh/commit/4f848c60975e9c60fd8a336f9bb44e3e8d31cfb6)\] docs: improve readme with badges

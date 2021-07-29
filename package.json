@@ -1,10 +1,10 @@
 {
   "name": "@splatterxl/qsh",
-  "version": "0.0.1-dev",
+  "version": "0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a.2",
   "description": "A syntaxically strict shell.",
   "main": "dist/index.js",
   "bin": {
-    "qsh": "dist/index.js"
+    "qsh": "scripts/bin"
   },
   "man": [
     "docs/qsh.1"
