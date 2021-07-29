@@ -1,11 +1,11 @@
 {
-  "name": "q.sh",
+  "name": "@splatterxl/qsh",
   "version": "0.0.1-dev",
   "description": "A syntaxically strict shell.",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "man": [
-    "docs/q.sh.1"
+    "docs/qsh.1"
   ],
   "scripts": {
     "build": "tsc",
