@@ -1,6 +1,6 @@
 # Qshell specifications
 
-All lines and statements must end with `;`.
+All statements must end with `;`.
 
 ## Comments
 
@@ -12,22 +12,11 @@ All lines and statements must end with `;`.
 ```sh
 # I am a commented line
 echo "I'm not!";
-## I'm a block
-   comment, that can span
-   multiple
-   l
-   i
-   n
-   e
-   s &##
 ```
 
 ## Values
 
-Values supported by Qsh are:
-
-- strings, both notated by quotes and not, and
-- null
+Values supported by Qsh are: strings, both notated by quotes and not. <!--, and null-->
 
 ### Examples
 
@@ -39,7 +28,7 @@ var char = 'a';
 
 ## Variables
 
-Normal variables are declared with the `var` command. They can be accessed through `@var_name`.
+<!-- Normal variables are declared with the `var` command. They can be accessed through `@var_name`. -->
 
 Environment variables are declared with the `env` command. They can be accessed through `$VAR_NAME`.
 

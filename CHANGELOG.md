@@ -1,6 +1,8 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`ea3a90b`](https://github.com/nearlySplat/qsh/commit/ea3a90b0bbd4e36aa75804b595dfd5aac79bf2a1)\] ci: move directories with --force
+- \[[`4f6bcfe`](https://github.com/nearlySplat/qsh/commit/4f6bcfe26a2adbb4e7f21f3c42f77b2d299ff6e9)\] fix: installation error docs: expand on docs
 - \[[`717f8e2`](https://github.com/nearlySplat/qsh/commit/717f8e2409d0a541feacd09044f8791680f36afb)\] feat: add environment variable support
 - \[[`c2536a8`](https://github.com/nearlySplat/qsh/commit/c2536a823ee041f97dfdf2c88c42d749a6b5e146)\] ci: add build workflow
 - \[[`8cc3c6b`](https://github.com/nearlySplat/qsh/commit/8cc3c6b2e7122815fd5bc2017b9926cbd81d40cb)\] feat: now it runs the files
