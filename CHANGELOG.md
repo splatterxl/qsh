@@ -1,6 +1,8 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`28fdbd5`](https://github.com/nearlySplat/qsh/commit/28fdbd549eba4dd0a1a78dd4ae4cd1e715f46d9a)\] ci: use build script file
+- \[[`67b2268`](https://github.com/nearlySplat/qsh/commit/67b2268819ce29e165f57df2f735a7927f587ead)\] move build script to own file
 - \[[`73b2741`](https://github.com/nearlySplat/qsh/commit/73b2741dd517f00ac5b399f24a03a39cd6aa2ad1)\] ci: move bin file to scripts folder
 - \[[`8598018`](https://github.com/nearlySplat/qsh/commit/8598018ca779b37a9a5c6eef6ca10742b60d3b86)\] feat: actual file not found handling
 - \[[`5751877`](https://github.com/nearlySplat/qsh/commit/5751877d4e0bc718d9baf43ceaa586356b4e05ae)\] 0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a.2
