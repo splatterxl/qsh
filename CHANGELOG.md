@@ -1,18 +1,12 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
-- \[[`28fdbd5`](https://github.com/nearlySplat/qsh/commit/28fdbd549eba4dd0a1a78dd4ae4cd1e715f46d9a)\] ci: use build script file
-- \[[`67b2268`](https://github.com/nearlySplat/qsh/commit/67b2268819ce29e165f57df2f735a7927f587ead)\] move build script to own file
-- \[[`73b2741`](https://github.com/nearlySplat/qsh/commit/73b2741dd517f00ac5b399f24a03a39cd6aa2ad1)\] ci: move bin file to scripts folder
-- \[[`8598018`](https://github.com/nearlySplat/qsh/commit/8598018ca779b37a9a5c6eef6ca10742b60d3b86)\] feat: actual file not found handling
-- \[[`5751877`](https://github.com/nearlySplat/qsh/commit/5751877d4e0bc718d9baf43ceaa586356b4e05ae)\] 0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a.2
-- \[[`72e9c90`](https://github.com/nearlySplat/qsh/commit/72e9c9080fc06ea2b5da9edd69df0705b0bb0fde)\] 0.0.1-dev.3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a
-- \[[`3b0d1b2`](https://github.com/nearlySplat/qsh/commit/3b0d1b2bb2ba69ad0e8b2ad22e9e9c9b584b874a)\] 0.0.1-dev
-- \[[`6532503`](https://github.com/nearlySplat/qsh/commit/6532503fdd82505430ce19b5b2dd35b5049cbede)\] 0.0.1-dev.04c5ce50ab289adda409735e741817e210432458.13ef5029520dd5f1ca24c2c7dc11bb2501193657
-- \[[`13ef502`](https://github.com/nearlySplat/qsh/commit/13ef5029520dd5f1ca24c2c7dc11bb2501193657)\] 0.0.1-dev.04c5ce50ab289adda409735e741817e210432458
-- \[[`04c5ce5`](https://github.com/nearlySplat/qsh/commit/04c5ce50ab289adda409735e741817e210432458)\] chore: update bin to actually work
-- \[[`8f58191`](https://github.com/nearlySplat/qsh/commit/8f58191e808cbf397acff6e9f920d7f52bc70b2f)\] chore: add metadata to package.json
-- \[[`9f87837`](https://github.com/nearlySplat/qsh/commit/9f87837404ad41284f4d7f17d37cbadc1c65985d)\] update npm name to q.sh
+- \[[`28fbcc7`](https://github.com/nearlySplat/qsh/commit/28fbcc77bc93aff91754bae849b5d87d83f23df3)\] feat: add block comments
+- \[[`c04847e`](https://github.com/nearlySplat/qsh/commit/c04847ec73e712ca15dd0faf8039e5d3404c8791)\] ci: use build script file
+- \[[`4823cae`](https://github.com/nearlySplat/qsh/commit/4823caeba4ff2dec122fb3869538690e7ca04963)\] move build script to own file
+- \[[`1ab4b80`](https://github.com/nearlySplat/qsh/commit/1ab4b804757c2653299ed499ec3d9a5f6f9240ed)\] ci: move bin file to scripts folder
+- \[[`111487a`](https://github.com/nearlySplat/qsh/commit/111487acdb788285d9615b960c4d3d49c93abe30)\] feat: actual file not found handling
+- \[[`70d07cd`](https://github.com/nearlySplat/qsh/commit/70d07cd624831da88653c84d00b9c4580f9bbefd)\] chore: improve docs and package.json
 - \[[`4f848c6`](https://github.com/nearlySplat/qsh/commit/4f848c60975e9c60fd8a336f9bb44e3e8d31cfb6)\] docs: improve readme with badges
 - \[[`ea3a90b`](https://github.com/nearlySplat/qsh/commit/ea3a90b0bbd4e36aa75804b595dfd5aac79bf2a1)\] ci: move directories with --force
 - \[[`4f6bcfe`](https://github.com/nearlySplat/qsh/commit/4f6bcfe26a2adbb4e7f21f3c42f77b2d299ff6e9)\] fix: installation error docs: expand on docs
