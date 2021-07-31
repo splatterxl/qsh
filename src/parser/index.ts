@@ -25,7 +25,6 @@ export class QshSyntaxError {
 }
 
 export class Block {
-  public id: number;
   public value?: string;
   constructor(
     public children: (Token | Block)[],
@@ -36,10 +35,6 @@ export class Block {
     this.parent = parent;
     this.type = type;
     Object.defineProperty(this, 'value', { enumerable: false });
-    Object.defineProperty(this, 'id', {
-      value: ~~(Math.random() * 10000),
-      enumerable: false,
-    });
   }
 
   resolve() {
@@ -95,21 +90,25 @@ export function parse(
   }
   function stepOut() {
     current.resolve();
-    //console.log(current.id, current.parent.id);
+    let tmp = current;
     current = current.parent;
-    //console.log(current.id, current.parent.id);
+    if (tmp === current) {
+      console.log('what');
+    }
     return 1;
   }
   let current = <Block>(
     push(new Block([], <Block>(<unknown>result), BlockTypes.File), result)
   );
 
-  current = <Block>push(new Block([], current, BlockTypes.Statement));
+  <Block>push(new Block([], current, BlockTypes.Statement));
 
   let character = 0;
   let line = 0;
 
   let isComment = false;
+  let isCommentBlock = false;
+  let isCommentBlockEnd = false;
   let abort = false;
   let inQuotes = false;
   let quotes: '"' | "'" | '' = '';
@@ -117,34 +116,53 @@ export function parse(
   let inVarBlock = false;
 
   for (const char of data.split('')) {
+    if (isCommentBlockEnd && char !== '#') continue;
     character++;
     if (abort) break;
     switch (char) {
       case ';': {
-        if (inQuotes) break;
-        if (inVarBlock) syntaxError(SyntaxErrors.UnexpectedIdentifier);
-        current.resolve();
+        if (isCommentBlock) {
+          isCommentBlockEnd = true;
+          break;
+        }
+        if (inQuotes || isComment) break;
+        if (inVarBlock) {
+          syntaxError(SyntaxErrors.UnexpectedIdentifier, true);
+          break;
+        }
         stepOut();
         current = <Block>(
           push(
             new Block([], current.parent, BlockTypes.Statement),
-            current.children
+            current.parent.children
           )
         );
         break;
       }
       case '\n': {
-        if (isComment) isComment = !isComment;
+        if (isComment && !isCommentBlock) isComment = !isComment;
+        if (isComment && isCommentBlock) break;
         line++;
         character = 0;
         break;
       }
       case '#': {
+        if (isCommentBlockEnd) {
+          isCommentBlockEnd = false;
+          isCommentBlock = false;
+          isComment = false;
+          break;
+        }
+        if (isComment) {
+          isCommentBlock = true;
+          break;
+        }
         isComment = true;
         line++;
         break;
       }
       case ' ': {
+        if (isComment) break;
         if (!inVar) {
           if (inQuotes) {
             push(new Token(' ', Tokens.Character, current));
@@ -160,6 +178,7 @@ export function parse(
         break;
       }
       case "'": {
+        if (isComment) break;
         if (inQuotes && quotes === "'") {
           inQuotes = false;
           quotes = '';
@@ -173,6 +192,7 @@ export function parse(
         break;
       }
       case '"': {
+        if (isComment) break;
         if (inQuotes && quotes === '"') {
           inQuotes = false;
           quotes = '';
@@ -186,7 +206,10 @@ export function parse(
       }
       case '@':
       case '$': {
-        if (inVar) syntaxError(SyntaxErrors.UnexpectedIdentifier);
+        if (isComment) break;
+        if (inVar) {
+          stepOut();
+        }
         current = <Block>(
           push(
             new Block([], current, BlockTypes.GenericVariableReference),
@@ -202,16 +225,18 @@ export function parse(
         break;
       }
       case '{': {
+        if (isComment) break;
         if (inVar) {
           inVarBlock = true;
         } else {
-          syntaxError(SyntaxErrors.UnexpectedIdentifier);
+          syntaxError(SyntaxErrors.UnexpectedIdentifier, true);
         }
         break;
       }
       case '}': {
+        if (isComment) break;
         if (!inVar) {
-          syntaxError(SyntaxErrors.UnexpectedIdentifier);
+          syntaxError(SyntaxErrors.UnexpectedIdentifier, true);
         } else {
           inVarBlock = false;
         }
@@ -231,8 +256,10 @@ export function parse(
         break;
       }
     }
+    if (current.type === BlockTypes.File)
+      current = <Block>push(new Block([], current, BlockTypes.Statement));
   }
-  return [result.filter((v) => v.children.length), errors, data, abort];
+  return [result, errors, data, abort];
 }
 
 export function parseFile(name: string) {

@@ -28,6 +28,8 @@ export async function run(
       process.exit(4);
     }
     const command = branch.children.shift();
+    // idk
+    if (!command) continue;
     const args = branch.children.map((v) =>
       v.type === BlockTypes.EnvironmentVariableReference
         ? { ...v, value: process.env[v.value] }
@@ -36,16 +38,21 @@ export async function run(
     if (command.value === '%') {
       eval(args[0].value);
     } else {
-      const proc = child_process.spawn(
-        command.value,
-        args.map((v) => v.value).filter((v) => v),
-        { stdio: 'inherit', argv0: command.value }
-      );
-      await new Promise<void>((res) => {
-        proc.on('exit', () => {
-          res();
+      try {
+        const proc = child_process.spawn(
+          command.value,
+          args.map((v) => v.value).filter((v) => v),
+          { stdio: 'inherit', argv0: command.value }
+        );
+        await new Promise<void>((res) => {
+          proc.on('exit', () => {
+            res();
+          });
         });
-      });
+      } catch (e) {
+        if (e.code === 'ENOENT')
+          console.error(command.value + ': command not found');
+      }
     }
   }
 }

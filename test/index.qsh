@@ -1,7 +1,7 @@
 #!/bin/sh
-echo Hell"o" World"!" Home: ${HOME};
-echo j
-# this should be ignored
-## this should
-#  be ignored
-#  too &##
+echo hello from qsh code;
+% process.stdout.write("'hello from embedded js snippet\n'");
+## this should be ignored
+  this should
+  be ignored
+  too ;#
