@@ -137,7 +137,7 @@ function parse(data) {
                 }
             }
             case ';': {
-                if (isEscaped) {
+                if (isEscaped || inQuotes) {
                     pushEscaped();
                     break;
                 }
@@ -145,7 +145,7 @@ function parse(data) {
                     isCommentBlockEnd = true;
                     break;
                 }
-                if (inQuotes || isComment)
+                if (isComment)
                     break;
                 if (inVarBlock === true) {
                     syntaxError(errors_1.SyntaxErrors.UnexpectedIdentifier, true);
@@ -222,7 +222,7 @@ function parse(data) {
                     quotes = '';
                     stepOut();
                 }
-                else if (inQuotes) {
+                else if (inQuotes && quotes === '"') {
                     current.children.push(new Token("'", tokens_1.Tokens.Character, current));
                 }
                 else {
@@ -242,7 +242,7 @@ function parse(data) {
                     inQuotes = false;
                     quotes = '';
                 }
-                else if (inQuotes) {
+                else if (inQuotes && quotes === "'") {
                     current.children.push(new Token('"', tokens_1.Tokens.Character, current));
                 }
                 else {

@@ -1,6 +1,7 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`b80740a`](https://github.com/nearlySplat/qsh/commit/b80740a8c9b1ea98df95f3afdac5983904403a60)\] fix: catch errors better
 - \[[`727887b`](https://github.com/nearlySplat/qsh/commit/727887b26f88715af8f8977280ba0cb178e2b880)\] docs: improve specification
 - \[[`7b725ca`](https://github.com/nearlySplat/qsh/commit/7b725ca60ff8b167cce592468ecbc4cca49184de)\] docs: uncomment npm installation
 - \[[`aecd8a8`](https://github.com/nearlySplat/qsh/commit/aecd8a8846c83fbbdf75e9fb1fd76b74561ab533)\] docs: now it's the correct badge
