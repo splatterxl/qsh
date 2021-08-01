@@ -1,42 +1,51 @@
-# Qshell specifications
+# Qshell Specification
 
-All statements must end with `;`.
+What's this? This is the specification for Qshell's unique syntax.
+
+## Basic Rules
+
+- All statements must end with `;`
 
 ## Comments
 
-- Comment lines start with `#`.
-<!--- Comment blocks start with `##` and end with `&##`.-->
+### Line comments
 
-### Examples
+Line comments are denoted with `#`. These are only valid for one line (i.e. any unescaped newline must terminate it).
 
-```sh
-# I am a commented line
-echo "I'm not!";
+#### Example:
+
+```shell
+# this is commented
+echo "this isn't";
 ```
 
-## Values
+### Block comments
 
-Values supported by Qsh are: strings, both notated by quotes and not. <!--, and null-->
+Block comments are started with `##`, and ended with `;#`. These are valid until the ending token is discovered. It is better code style to prefix every line in the block comment with one (1) indenting space and a `#` character.
 
-### Examples
+#### Example:
 
-```sh
-var unquoted = a string;
-var word = "another string";
-var char = 'a';
+```shell
+## this is commented
+   this is also commented
+ # and this is better style
+ # but now the block ends ;#
 ```
+
+
 
 ## Variables
 
-<!-- Normal variables are declared with the `var` command. They can be accessed through `@var_name`. -->
+### Declaration
 
-Environment variables are declared with the `env` command. They can be accessed through `$VAR_NAME`.
+Variables are declared with the `var` function.
 
-<!--### Scoped variables-->
-<!--Use the `--scoped` or `-s` flag with `var` to specify a scoped variable.-->
+#### Example:
 
-<!--### Mutable values-->
-<!--Although variables are mutable by default, you can explicitly specify it with `%name`. Example: `var %str = "Hello, World!";`. References are still `@var_name`.-->
+```shell
+var foo = "bar";
+```
 
-<!--### Immutable values-->
-<!--Immutable variables are specified with the `--const` flag. Example: `var --const a_variable = "test";`-->
+### Reference
+
+Variables can be referenced with either of two identifiers: `$` for *environment* variables, and `@` for normal variables.
