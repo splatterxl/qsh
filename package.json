@@ -2,7 +2,7 @@
   "name": "@splatterxl/qsh",
   "version": "0.0.1-dev",
   "description": "A syntaxically strict shell.",
-  "main": "dist/index.js",
+  "main": "dist/login.js",
   "bin": {
     "qsh": "scripts/bin"
   },

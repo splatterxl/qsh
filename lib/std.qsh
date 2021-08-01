@@ -1,8 +1,4 @@
 #!/bin/set
-fn set {
-  echo @@;
-};
-
-fn env {
-  echo $@
+fn exit {
+  % process.exit()
 }

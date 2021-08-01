@@ -100,7 +100,10 @@ async function runCommand(branch: Block) {
         proc.on('exit', () => {
           res();
         });
-        proc.on('error', rej);
+        proc.on('error', (e) => {
+          proc.kill('SIGTERM');
+          rej(e);
+        });
       });
     } catch (e) {
       if (e.code === 'ENOENT')

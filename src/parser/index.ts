@@ -81,7 +81,6 @@ export function parse(
     );
     if (fatal) abort = true;
   }
-
   data = data.toString();
   const result: Block[] = [];
   function push(data: Token | Block, arr = current.children) {

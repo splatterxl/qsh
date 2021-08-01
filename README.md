@@ -6,14 +6,8 @@
   
 </div>
 
-Qshell is a strict shell language, that isn't _necessarily_ POSIX compliant.
+Qshell is a strict shell language that isn't _necessarily_ POSIX compliant.
 
-----
-
-  <b>NOTICE</b> <br />
-  Qshell cannot currently be used as a login shell.
-  
-----
 
 ## Table of Contents
 
