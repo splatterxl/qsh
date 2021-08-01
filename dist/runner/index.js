@@ -7,38 +7,62 @@ const errors_1 = require("../parser/errors");
 const tokens_1 = require("../parser/tokens");
 const en_json_1 = tslib_1.__importDefault(require("../parser/i18n/en.json"));
 const child_process_1 = tslib_1.__importDefault(require("child_process"));
-async function run([{ children: tree }], fileData) {
-    for (const branch of tree) {
-        if (branch.type !== tokens_1.BlockTypes.Statement) {
-            console.log(parser_1.formatError(new parser_1.QshSyntaxError(errors_1.SyntaxErrors.InvalidAST, 
-            // @ts-ignore
-            en_json_1.default[errors_1.SyntaxErrors[errors_1.SyntaxErrors.InvalidAST]], true, 0, 0, 1), fileData.contents, fileData.name));
-            process.exit(4);
-        }
-        const command = branch.children.shift();
-        // idk
-        if (!command)
-            continue;
-        const args = branch.children.map((v) => v.type === tokens_1.BlockTypes.EnvironmentVariableReference
-            ? { ...v, value: process.env[v.value] }
-            : v);
-        if (command.value === '%') {
-            eval(args[0].value);
-        }
-        else {
-            try {
-                const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit', argv0: command.value });
-                await new Promise((res) => {
-                    proc.on('exit', () => {
-                        res();
-                    });
-                });
+const functions = new Map();
+const vars = new Map();
+async function run(files, fileData) {
+    for (const file of files) {
+        for (const branch of file.children) {
+            // idk
+            if (branch instanceof parser_1.Token)
+                continue;
+            if (branch.type !== tokens_1.BlockTypes.Statement) {
+                console.log(parser_1.formatError(new parser_1.QshSyntaxError(errors_1.SyntaxErrors.InvalidAST, 
+                // @ts-ignore
+                en_json_1.default[errors_1.SyntaxErrors[errors_1.SyntaxErrors.InvalidAST]], true, 0, 0, 1), fileData.contents, fileData.name));
+                process.exit(4);
             }
-            catch (e) {
-                if (e.code === 'ENOENT')
-                    console.error(command.value + ': command not found');
-            }
+            await runCommand(branch);
         }
     }
 }
 exports.run = run;
+async function runCommand(branch) {
+    const command = branch.children.shift();
+    // idk
+    if (!command)
+        return;
+    let args = branch.children.map((v) => v.type === tokens_1.BlockTypes.EnvironmentVariableReference
+        ? { ...v, value: process.env[v.value] }
+        : v);
+    vars.set('@', args.map((v) => v.value).join(' '));
+    args = args.map((v) => v.type === tokens_1.BlockTypes.ScopedVariableReference
+        ? { ...v, value: vars.get(v.value) }
+        : v);
+    if (command.value === '%') {
+        eval(args[0].value);
+    }
+    else if (command.value === 'fn') {
+        functions.set(args.shift().value, parser_1.parse(args[0].value)[0]);
+    }
+    else if (functions.has(command.value)) {
+        const file = functions.get(command.value)[0];
+        for (const statement of file.children) {
+            runCommand(statement);
+            vars.delete('@');
+        }
+    }
+    else {
+        try {
+            const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit', argv0: command.value });
+            await new Promise((res) => {
+                proc.on('exit', () => {
+                    res();
+                });
+            });
+        }
+        catch (e) {
+            if (e.code === 'ENOENT')
+                console.error(command.value + ': command not found');
+        }
+    }
+}

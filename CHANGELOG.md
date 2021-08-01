@@ -1,6 +1,7 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`8c45183`](https://github.com/nearlySplat/qsh/commit/8c45183ebe7580089c5d9882072d082360a00220)\] feat: functions!
 - \[[`7caf22a`](https://github.com/nearlySplat/qsh/commit/7caf22a062373e24e1ac17576af384ead78c88af)\] ci: remove dist folder before replacing
 - \[[`6c49ca6`](https://github.com/nearlySplat/qsh/commit/6c49ca607e75b3e3a11945d131553803b475fecb)\] ci: move dist to tmp
 - \[[`afd885f`](https://github.com/nearlySplat/qsh/commit/afd885fe57d73794dd43e032b881be93b63b9db4)\] feat: add houdini (escapism)

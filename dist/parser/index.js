@@ -107,9 +107,15 @@ function parse(data) {
     let quotes = '';
     let inVar = false;
     let inVarBlock = false;
+    let isFunction = false;
+    let isFunctionBody = false;
     // the most imporant variable
     let isEscaped = false;
     for (const char of data.split('')) {
+        if (isFunctionBody && char !== '}') {
+            current.children.push(new Token(char, tokens_1.Tokens.Character, current));
+            continue;
+        }
         function pushEscaped(str = char) {
             current.children.push(new Token(str, tokens_1.Tokens.Character, current));
             isEscaped = false;
@@ -141,7 +147,7 @@ function parse(data) {
                 }
                 if (inQuotes || isComment)
                     break;
-                if (inVarBlock) {
+                if (inVarBlock === true) {
                     syntaxError(errors_1.SyntaxErrors.UnexpectedIdentifier, true);
                     break;
                 }
@@ -185,7 +191,7 @@ function parse(data) {
                     // being escaped does nothing for space
                     isEscaped = false;
                 }
-                if (isComment)
+                if (isComment || current.children.length === 0)
                     break;
                 if (!inVar) {
                     if (inQuotes) {
@@ -198,6 +204,9 @@ function parse(data) {
                 else {
                     inVar = false;
                     stepOut();
+                }
+                if (current.children[0].value === 'fn') {
+                    isFunction = true;
                 }
                 break;
             }
@@ -257,13 +266,17 @@ function parse(data) {
                 if (char === '$') {
                     current.type = tokens_1.BlockTypes.EnvironmentVariableReference;
                 }
-                else {
+                else if (char === '@') {
                     current.type = tokens_1.BlockTypes.ScopedVariableReference;
                 }
                 inVar = true;
                 break;
             }
             case '{': {
+                if (isFunction) {
+                    isFunctionBody = true;
+                    break;
+                }
                 if (isEscaped) {
                     pushEscaped();
                     break;
@@ -279,6 +292,10 @@ function parse(data) {
                 break;
             }
             case '}': {
+                if (isFunction) {
+                    isFunctionBody = false;
+                    break;
+                }
                 if (isEscaped) {
                     pushEscaped();
                     break;
