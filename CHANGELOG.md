@@ -1,6 +1,8 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`9d5c732`](https://github.com/nearlySplat/qsh/commit/9d5c732024542a7bd14b2e942d88681364545274)\] committing for now, it does not work
+- \[[`afd885f`](https://github.com/nearlySplat/qsh/commit/afd885fe57d73794dd43e032b881be93b63b9db4)\] feat: add houdini (escapism)
 - \[[`28fbcc7`](https://github.com/nearlySplat/qsh/commit/28fbcc77bc93aff91754bae849b5d87d83f23df3)\] feat: add block comments
 - \[[`c04847e`](https://github.com/nearlySplat/qsh/commit/c04847ec73e712ca15dd0faf8039e5d3404c8791)\] ci: use build script file
 - \[[`4823cae`](https://github.com/nearlySplat/qsh/commit/4823caeba4ff2dec122fb3869538690e7ca04963)\] move build script to own file
