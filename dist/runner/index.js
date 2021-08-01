@@ -70,7 +70,10 @@ async function runCommand(branch) {
                 proc.on('exit', () => {
                     res();
                 });
-                proc.on('error', rej);
+                proc.on('error', (e) => {
+                    proc.kill('SIGTERM');
+                    rej(e);
+                });
             });
         }
         catch (e) {

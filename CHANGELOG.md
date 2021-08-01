@@ -1,6 +1,7 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`108c0ca`](https://github.com/nearlySplat/qsh/commit/108c0caeccf4677bbb607aed21dfb19be40be5c6)\] feat: login shell
 - \[[`ddc32d2`](https://github.com/nearlySplat/qsh/commit/ddc32d2b348fab40541c5e3d31bd2e1f3482079f)\] fix: catch errors better
 - \[[`379cffb`](https://github.com/nearlySplat/qsh/commit/379cffbd5ffb210716751516a3749dc8a4808bcd)\] docs: improve specification
 - \[[`23598ed`](https://github.com/nearlySplat/qsh/commit/23598ed9fb0ea97762c4d78f7d63224cc7d7b5fe)\] feat: functions!
