@@ -1,6 +1,8 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`7b725ca`](https://github.com/nearlySplat/qsh/commit/7b725ca60ff8b167cce592468ecbc4cca49184de)\] docs: uncomment npm installation
+- \[[`aecd8a8`](https://github.com/nearlySplat/qsh/commit/aecd8a8846c83fbbdf75e9fb1fd76b74561ab533)\] docs: now it's the correct badge
 - \[[`818fc6f`](https://github.com/nearlySplat/qsh/commit/818fc6f7489bac72fe9c103acbe2cefe08a75a2f)\] ci: move lib to tmp folder
 - \[[`8c45183`](https://github.com/nearlySplat/qsh/commit/8c45183ebe7580089c5d9882072d082360a00220)\] feat: functions!
 - \[[`7caf22a`](https://github.com/nearlySplat/qsh/commit/7caf22a062373e24e1ac17576af384ead78c88af)\] ci: remove dist folder before replacing
