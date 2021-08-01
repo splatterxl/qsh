@@ -2,7 +2,7 @@
   
   <h1>qsh</h1>
 
-  <img src="https://img.shields.io/github/checks-status/nearlySplat/qsh/trunk?label=CI&logo=github" /> <img src="https://img.shields.io/github/package-json/v/nearlySplat/qsh" /> <img src="https://david-dm.org/nearlysplat/splatsh.svg" />
+  <img src="https://img.shields.io/github/checks-status/nearlySplat/qsh/trunk?label=CI&logo=github" /> <img src="https://img.shields.io/github/package-json/v/nearlySplat/qsh" /> <img src="https://david-dm.org/nearlysplat/qsh.svg" />
   
 </div>
 
@@ -47,10 +47,9 @@ Coming soon:tm:
 
 ### Through NPM
 
-You can install the NPM package (soon:tm:), or install from the [built code](built).
+You can install the npm package, or install from the [built code](built).
 
-<!-- - From NPM: `npm install -g q.sh` -->
-
+- From the npm registry: `npm install -g @splatterxl/qsh@dev`
 - From the built code on GitHub: `npm install -g nearlySplat/qsh#build`
 
 ## Syntax
