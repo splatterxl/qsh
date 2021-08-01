@@ -6,8 +6,10 @@ echo \\owo\; \
 fn j {
   echo Hello, World!;
 };
+echo;
+export j=j;
+echo;
 j;
-e j;
 ## this should be ignored
   this should
   be ignored

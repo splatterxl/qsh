@@ -10,6 +10,7 @@ import { SyntaxErrors } from '../parser/errors';
 import { BlockTypes } from '../parser/tokens';
 import i18n from '../parser/i18n/en.json';
 import child_process from 'child_process';
+import chalk from 'chalk';
 
 const functions = new Map<string, AbstractSyntaxTree>();
 const vars = new Map<string, string>();
@@ -49,29 +50,44 @@ async function runCommand(branch: Block) {
   const command = branch.children.shift();
   // idk
   if (!command) return;
-  let args = branch.children.map((v) =>
-    v.type === BlockTypes.EnvironmentVariableReference
-      ? { ...v, value: process.env[v.value] }
-      : v
-  );
+  let args: typeof branch.children;
+  function setArgs(): Block[] {
+    return <Block[]>(
+      branch.children.map((v) =>
+        v.type === BlockTypes.EnvironmentVariableReference
+          ? { ...v, value: process.env[v.value] }
+          : v.type === BlockTypes.ScopedVariableReference
+          ? { ...v, value: vars.get(v.value) }
+          : v
+      )
+    );
+  }
 
-  vars.set('@', args.map((v) => v.value).join(' '));
+  let old = vars.get('@') || '';
 
-  args = args.map((v) =>
-    v.type === BlockTypes.ScopedVariableReference
-      ? { ...v, value: vars.get(v.value) }
-      : v
-  );
+  args = setArgs();
+  vars.set('@', args.map((v) => v.value).join(' ') || old);
+  process.env['@'] = vars.get('@');
+  args = setArgs();
 
   if (command.value === '%') {
-    eval(args[0].value);
+    try {
+      eval(args[0].value);
+    } catch (e) {
+      console.error(
+        '[Embedded JS]',
+        e.toString(),
+        chalk`\n\t{grey at:}\t`,
+        args[0].value
+      );
+    }
   } else if (command.value === 'fn') {
     functions.set(args.shift().value, parse(args[0].value)[0]);
   } else if (functions.has(command.value)) {
     const file = functions.get(command.value)[0];
     for (const statement of file.children) {
       runCommand(<Block>statement);
-      vars.delete('@');
+      vars.set('@', old);
     }
   } else {
     try {
@@ -80,10 +96,11 @@ async function runCommand(branch: Block) {
         args.map((v) => v.value).filter((v) => v),
         { stdio: 'inherit', argv0: command.value }
       );
-      await new Promise<void>((res) => {
+      await new Promise<void>((res, rej) => {
         proc.on('exit', () => {
           res();
         });
+        proc.on('error', rej);
       });
     } catch (e) {
       if (e.code === 'ENOENT')

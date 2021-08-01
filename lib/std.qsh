@@ -1,4 +1,8 @@
-#!/bin/sh
-fn e {
-  echo hi;
+#!/bin/set
+fn set {
+  echo @@;
+};
+
+fn env {
+  echo $@
 }
