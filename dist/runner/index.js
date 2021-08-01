@@ -7,7 +7,7 @@ const errors_1 = require("../parser/errors");
 const tokens_1 = require("../parser/tokens");
 const en_json_1 = tslib_1.__importDefault(require("../parser/i18n/en.json"));
 const child_process_1 = tslib_1.__importDefault(require("child_process"));
-async function run(tree, fileData) {
+async function run([{ children: tree }], fileData) {
     for (const branch of tree) {
         if (branch.type !== tokens_1.BlockTypes.Statement) {
             console.log(parser_1.formatError(new parser_1.QshSyntaxError(errors_1.SyntaxErrors.InvalidAST, 
@@ -16,13 +16,29 @@ async function run(tree, fileData) {
             process.exit(4);
         }
         const command = branch.children.shift();
-        const args = branch.children;
-        const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit', argv0: command.value });
-        await new Promise((res) => {
-            proc.on('exit', () => {
-                res();
-            });
-        });
+        // idk
+        if (!command)
+            continue;
+        const args = branch.children.map((v) => v.type === tokens_1.BlockTypes.EnvironmentVariableReference
+            ? { ...v, value: process.env[v.value] }
+            : v);
+        if (command.value === '%') {
+            eval(args[0].value);
+        }
+        else {
+            try {
+                const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit' });
+                await new Promise((res) => {
+                    proc.on('exit', () => {
+                        res();
+                    });
+                });
+            }
+            catch (e) {
+                if (e.code === 'ENOENT')
+                    console.error(command.value + ': command not found');
+            }
+        }
     }
 }
 exports.run = run;

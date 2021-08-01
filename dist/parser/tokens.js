@@ -9,8 +9,14 @@ var Tokens;
 })(Tokens = exports.Tokens || (exports.Tokens = {}));
 var BlockTypes;
 (function (BlockTypes) {
-    BlockTypes[BlockTypes["Block"] = 0] = "Block";
+    BlockTypes[BlockTypes["File"] = 0] = "File";
     BlockTypes[BlockTypes["Statement"] = 1] = "Statement";
     BlockTypes[BlockTypes["Command"] = 2] = "Command";
     BlockTypes[BlockTypes["String"] = 3] = "String";
+    BlockTypes[BlockTypes["GenericVariableReference"] = 4] = "GenericVariableReference";
+    BlockTypes[BlockTypes["EnvironmentVariableReference"] = 5] = "EnvironmentVariableReference";
+    BlockTypes[BlockTypes["ScopedVariableReference"] = 6] = "ScopedVariableReference";
+    BlockTypes[BlockTypes["Function"] = 7] = "Function";
+    BlockTypes[BlockTypes["FunctionName"] = 8] = "FunctionName";
+    BlockTypes[BlockTypes["FunctionBody"] = 9] = "FunctionBody";
 })(BlockTypes = exports.BlockTypes || (exports.BlockTypes = {}));
