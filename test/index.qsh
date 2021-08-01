@@ -2,7 +2,12 @@
 echo hello from qsh code;
 % console.log\("'hello from embedded js snippet'"\);
 echo \\owo\; \
-  I love being escaped
+  I love being escaped;
+fn j {
+  echo Hello, World!;
+};
+j;
+e j;
 ## this should be ignored
   this should
   be ignored

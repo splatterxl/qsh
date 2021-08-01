@@ -114,11 +114,17 @@ export function parse(
   let quotes: '"' | "'" | '' = '';
   let inVar = false;
   let inVarBlock = false;
+  let isFunction = false;
+  let isFunctionBody = false;
 
   // the most imporant variable
   let isEscaped = false;
 
   for (const char of data.split('')) {
+    if (isFunctionBody && char !== '}') {
+      current.children.push(new Token(char, Tokens.Character, current));
+      continue;
+    }
     function pushEscaped(str = char) {
       current.children.push(new Token(str, Tokens.Character, current));
       isEscaped = false;
@@ -147,7 +153,7 @@ export function parse(
           break;
         }
         if (inQuotes || isComment) break;
-        if (inVarBlock) {
+        if (inVarBlock === true) {
           syntaxError(SyntaxErrors.UnexpectedIdentifier, true);
           break;
         }
@@ -194,7 +200,7 @@ export function parse(
           // being escaped does nothing for space
           isEscaped = false;
         }
-        if (isComment) break;
+        if (isComment || current.children.length === 0) break;
         if (!inVar) {
           if (inQuotes) {
             push(new Token(' ', Tokens.Character, current));
@@ -206,6 +212,9 @@ export function parse(
         } else {
           inVar = false;
           stepOut();
+        }
+        if (current.children[0].value === 'fn') {
+          isFunction = true;
         }
         break;
       }
@@ -262,13 +271,17 @@ export function parse(
         );
         if (char === '$') {
           current.type = BlockTypes.EnvironmentVariableReference;
-        } else {
+        } else if (char === '@') {
           current.type = BlockTypes.ScopedVariableReference;
         }
         inVar = true;
         break;
       }
       case '{': {
+        if (isFunction) {
+          isFunctionBody = true;
+          break;
+        }
         if (isEscaped) {
           pushEscaped();
           break;
@@ -282,6 +295,10 @@ export function parse(
         break;
       }
       case '}': {
+        if (isFunction) {
+          isFunctionBody = false;
+          break;
+        }
         if (isEscaped) {
           pushEscaped();
           break;

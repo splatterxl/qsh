@@ -1,3 +1,4 @@
+#!/bin/sh
 set -x
 
 if [ "$CI" = "" ]; then
@@ -11,12 +12,12 @@ tsc -p tsconfig.json
 
 mkdir tmp
 bash scripts/changelog.sh > CHANGELOG.md.new
-mv docs package.json scripts/bin dist .npmignore tmp
+mv docs package.json scripts/bin dist lib .npmignore tmp
 
 git checkout build
 
 mv CHANGELOG.md.new CHANGELOG.md
-rm -rf docs dist
+rm -rf docs dist lib
 mv tmp/* . -f
 mkdir scripts
 mv bin scripts
