@@ -97,7 +97,6 @@ function parse(data) {
     }
     let current = (push(new Block([], result, tokens_1.BlockTypes.File), result));
     push(new Block([], current, tokens_1.BlockTypes.Statement));
-    let ind = 0;
     let character = 0;
     let line = 0;
     let isComment = false;
@@ -108,11 +107,9 @@ function parse(data) {
     let quotes = '';
     let inVar = false;
     let inVarBlock = false;
-    let inFunction = false;
     // the most imporant variable
     let isEscaped = false;
     for (const char of data.split('')) {
-        ind++;
         function pushEscaped(str = char) {
             current.children.push(new Token(str, tokens_1.Tokens.Character, current));
             isEscaped = false;
@@ -188,7 +185,7 @@ function parse(data) {
                     // being escaped does nothing for space
                     isEscaped = false;
                 }
-                if (isComment || current.children.length === 0)
+                if (isComment)
                     break;
                 if (!inVar) {
                     if (inQuotes) {
@@ -199,23 +196,6 @@ function parse(data) {
                     }
                 }
                 else {
-                    let type = current.type;
-                    if (inFunction) {
-                        switch (type) {
-                            case tokens_1.BlockTypes.FunctionName: {
-                                current = (push(new Block([], current, tokens_1.BlockTypes.FunctionBody)));
-                                break;
-                            }
-                            case tokens_1.BlockTypes.FunctionBody: {
-                                // everything's done
-                                break;
-                            }
-                            default: {
-                                current = (push(new Block([], current, tokens_1.BlockTypes.FunctionName)));
-                                break;
-                            }
-                        }
-                    }
                     inVar = false;
                     stepOut();
                 }
@@ -294,11 +274,7 @@ function parse(data) {
                     inVarBlock = true;
                 }
                 else {
-                    if (!inFunction)
-                        syntaxError(errors_1.SyntaxErrors.UnexpectedIdentifier, true);
-                    else {
-                        break;
-                    }
+                    syntaxError(errors_1.SyntaxErrors.UnexpectedIdentifier, true);
                 }
                 break;
             }
@@ -316,18 +292,6 @@ function parse(data) {
                     inVarBlock = false;
                 }
                 break;
-            }
-            case 'f': {
-                if (data[ind] === 'n') {
-                    break;
-                }
-            }
-            case 'n': {
-                if (data[ind - 2] === 'f' && char === 'n') {
-                    inFunction = true;
-                    current.type = tokens_1.BlockTypes.Function;
-                    break;
-                }
             }
             default: {
                 if (isEscaped)

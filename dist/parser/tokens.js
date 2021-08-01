@@ -16,7 +16,4 @@ var BlockTypes;
     BlockTypes[BlockTypes["GenericVariableReference"] = 4] = "GenericVariableReference";
     BlockTypes[BlockTypes["EnvironmentVariableReference"] = 5] = "EnvironmentVariableReference";
     BlockTypes[BlockTypes["ScopedVariableReference"] = 6] = "ScopedVariableReference";
-    BlockTypes[BlockTypes["Function"] = 7] = "Function";
-    BlockTypes[BlockTypes["FunctionName"] = 8] = "FunctionName";
-    BlockTypes[BlockTypes["FunctionBody"] = 9] = "FunctionBody";
 })(BlockTypes = exports.BlockTypes || (exports.BlockTypes = {}));

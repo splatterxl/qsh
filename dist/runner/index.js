@@ -27,7 +27,7 @@ async function run([{ children: tree }], fileData) {
         }
         else {
             try {
-                const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit' });
+                const proc = child_process_1.default.spawn(command.value, args.map((v) => v.value).filter((v) => v), { stdio: 'inherit', argv0: command.value });
                 await new Promise((res) => {
                     proc.on('exit', () => {
                         res();
