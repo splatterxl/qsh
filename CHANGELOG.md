@@ -1,25 +1,13 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
-- \[[`b80740a`](https://github.com/nearlySplat/qsh/commit/b80740a8c9b1ea98df95f3afdac5983904403a60)\] fix: catch errors better
-- \[[`727887b`](https://github.com/nearlySplat/qsh/commit/727887b26f88715af8f8977280ba0cb178e2b880)\] docs: improve specification
-- \[[`7b725ca`](https://github.com/nearlySplat/qsh/commit/7b725ca60ff8b167cce592468ecbc4cca49184de)\] docs: uncomment npm installation
-- \[[`aecd8a8`](https://github.com/nearlySplat/qsh/commit/aecd8a8846c83fbbdf75e9fb1fd76b74561ab533)\] docs: now it's the correct badge
-- \[[`818fc6f`](https://github.com/nearlySplat/qsh/commit/818fc6f7489bac72fe9c103acbe2cefe08a75a2f)\] ci: move lib to tmp folder
-- \[[`8c45183`](https://github.com/nearlySplat/qsh/commit/8c45183ebe7580089c5d9882072d082360a00220)\] feat: functions!
-- \[[`7caf22a`](https://github.com/nearlySplat/qsh/commit/7caf22a062373e24e1ac17576af384ead78c88af)\] ci: remove dist folder before replacing
-- \[[`6c49ca6`](https://github.com/nearlySplat/qsh/commit/6c49ca607e75b3e3a11945d131553803b475fecb)\] ci: move dist to tmp
-- \[[`afd885f`](https://github.com/nearlySplat/qsh/commit/afd885fe57d73794dd43e032b881be93b63b9db4)\] feat: add houdini (escapism)
-- \[[`28fbcc7`](https://github.com/nearlySplat/qsh/commit/28fbcc77bc93aff91754bae849b5d87d83f23df3)\] feat: add block comments
-- \[[`c04847e`](https://github.com/nearlySplat/qsh/commit/c04847ec73e712ca15dd0faf8039e5d3404c8791)\] ci: use build script file
-- \[[`4823cae`](https://github.com/nearlySplat/qsh/commit/4823caeba4ff2dec122fb3869538690e7ca04963)\] move build script to own file
-- \[[`1ab4b80`](https://github.com/nearlySplat/qsh/commit/1ab4b804757c2653299ed499ec3d9a5f6f9240ed)\] ci: move bin file to scripts folder
-- \[[`111487a`](https://github.com/nearlySplat/qsh/commit/111487acdb788285d9615b960c4d3d49c93abe30)\] feat: actual file not found handling
-- \[[`70d07cd`](https://github.com/nearlySplat/qsh/commit/70d07cd624831da88653c84d00b9c4580f9bbefd)\] chore: improve docs and package.json
-- \[[`4f848c6`](https://github.com/nearlySplat/qsh/commit/4f848c60975e9c60fd8a336f9bb44e3e8d31cfb6)\] docs: improve readme with badges
-- \[[`ea3a90b`](https://github.com/nearlySplat/qsh/commit/ea3a90b0bbd4e36aa75804b595dfd5aac79bf2a1)\] ci: move directories with --force
-- \[[`4f6bcfe`](https://github.com/nearlySplat/qsh/commit/4f6bcfe26a2adbb4e7f21f3c42f77b2d299ff6e9)\] fix: installation error docs: expand on docs
-- \[[`717f8e2`](https://github.com/nearlySplat/qsh/commit/717f8e2409d0a541feacd09044f8791680f36afb)\] feat: add environment variable support
-- \[[`c2536a8`](https://github.com/nearlySplat/qsh/commit/c2536a823ee041f97dfdf2c88c42d749a6b5e146)\] ci: add build workflow
-- \[[`8cc3c6b`](https://github.com/nearlySplat/qsh/commit/8cc3c6b2e7122815fd5bc2017b9926cbd81d40cb)\] feat: now it runs the files
+- \[[`ddc32d2`](https://github.com/nearlySplat/qsh/commit/ddc32d2b348fab40541c5e3d31bd2e1f3482079f)\] fix: catch errors better
+- \[[`379cffb`](https://github.com/nearlySplat/qsh/commit/379cffbd5ffb210716751516a3749dc8a4808bcd)\] docs: improve specification
+- \[[`23598ed`](https://github.com/nearlySplat/qsh/commit/23598ed9fb0ea97762c4d78f7d63224cc7d7b5fe)\] feat: functions!
+- \[[`53c0c60`](https://github.com/nearlySplat/qsh/commit/53c0c6036f1e21c420888bad98744fba0f2fdf8e)\] feat: add houdini (escapism)
+- \[[`83d3705`](https://github.com/nearlySplat/qsh/commit/83d370531ad5e8fdcfeb68490b2b8fbe6caa2454)\] feat: add block comments
+- \[[`2073ea6`](https://github.com/nearlySplat/qsh/commit/2073ea6aef358faa79dbfce141fd2531d894fe1e)\] feat: actual file not found handling
+- \[[`c9169b6`](https://github.com/nearlySplat/qsh/commit/c9169b6d78e958d8cb1d59dab7ddfb14fb517925)\] fix: installation error
+- \[[`d946408`](https://github.com/nearlySplat/qsh/commit/d946408e8a7e6314521b0ad1edb4869976d4e6ac)\] feat: add environment variable support
+- \[[`6047963`](https://github.com/nearlySplat/qsh/commit/604796390ceeba9dc363a77520ef67bbab288d27)\] feat: now it runs the files
 - \[[`b34d25e`](https://github.com/nearlySplat/qsh/commit/b34d25e9f072c94af4a1aff6d0129a2e31b07422)\] chore: init
