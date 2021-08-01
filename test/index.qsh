@@ -1,6 +1,8 @@
 #!/bin/sh
 echo hello from qsh code;
-% process.stdout.write("'hello from embedded js snippet\n'");
+% console.log\("'hello from embedded js snippet'"\);
+echo \\owo\; \
+  I love being escaped
 ## this should be ignored
   this should
   be ignored

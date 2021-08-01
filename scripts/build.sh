@@ -11,12 +11,12 @@ tsc -p tsconfig.json
 
 mkdir tmp
 bash scripts/changelog.sh > CHANGELOG.md.new
-mv docs package.json scripts/bin .npmignore tmp
+mv docs package.json scripts/bin dist .npmignore tmp
 
 git checkout build
 
 mv CHANGELOG.md.new CHANGELOG.md
-rm -rf docs
+rm -rf docs dist
 mv tmp/* . -f
 mkdir scripts
 mv bin scripts

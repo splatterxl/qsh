@@ -115,12 +115,33 @@ export function parse(
   let inVar = false;
   let inVarBlock = false;
 
+  // the most imporant variable
+  let isEscaped = false;
+
   for (const char of data.split('')) {
+    function pushEscaped(str = char) {
+      current.children.push(new Token(str, Tokens.Character, current));
+      isEscaped = false;
+    }
+
     if (isCommentBlockEnd && char !== '#') continue;
     character++;
     if (abort) break;
     switch (char) {
+      case '\\': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        } else {
+          isEscaped = true;
+          break;
+        }
+      }
       case ';': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isCommentBlock) {
           isCommentBlockEnd = true;
           break;
@@ -140,6 +161,9 @@ export function parse(
         break;
       }
       case '\n': {
+        if (isEscaped) {
+          break;
+        }
         if (isComment && !isCommentBlock) isComment = !isComment;
         if (isComment && isCommentBlock) break;
         line++;
@@ -147,6 +171,10 @@ export function parse(
         break;
       }
       case '#': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isCommentBlockEnd) {
           isCommentBlockEnd = false;
           isCommentBlock = false;
@@ -162,6 +190,10 @@ export function parse(
         break;
       }
       case ' ': {
+        if (isEscaped) {
+          // being escaped does nothing for space
+          isEscaped = false;
+        }
         if (isComment) break;
         if (!inVar) {
           if (inQuotes) {
@@ -178,6 +210,10 @@ export function parse(
         break;
       }
       case "'": {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isComment) break;
         if (inQuotes && quotes === "'") {
           inQuotes = false;
@@ -192,6 +228,10 @@ export function parse(
         break;
       }
       case '"': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isComment) break;
         if (inQuotes && quotes === '"') {
           inQuotes = false;
@@ -206,6 +246,10 @@ export function parse(
       }
       case '@':
       case '$': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isComment) break;
         if (inVar) {
           stepOut();
@@ -225,6 +269,10 @@ export function parse(
         break;
       }
       case '{': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isComment) break;
         if (inVar) {
           inVarBlock = true;
@@ -234,6 +282,10 @@ export function parse(
         break;
       }
       case '}': {
+        if (isEscaped) {
+          pushEscaped();
+          break;
+        }
         if (isComment) break;
         if (!inVar) {
           syntaxError(SyntaxErrors.UnexpectedIdentifier, true);
@@ -243,6 +295,7 @@ export function parse(
         break;
       }
       default: {
+        if (isEscaped) isEscaped = false;
         if (isComment) break;
         if (
           current.children.length === 0 &&
@@ -256,8 +309,15 @@ export function parse(
         break;
       }
     }
-    if (current.type === BlockTypes.File)
+    if (current.type === BlockTypes.Statement) {
+      if (current.children.length === 0) {
+        current = <Block>push(new Block([], current, BlockTypes.Command));
+      } else {
+        current = <Block>push(new Block([], current, BlockTypes.String));
+      }
+    } else if (current.type === BlockTypes.File)
       current = <Block>push(new Block([], current, BlockTypes.Statement));
+    current.resolve();
   }
   return [result, errors, data, abort];
 }
