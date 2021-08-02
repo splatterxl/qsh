@@ -30,10 +30,8 @@ usage:
 - qsh file [args...]
 - qsh -c code...
 `.trim();
-const [flags, invalid, unrecognised, rest] = flagParser_1.parseFlags(process.argv
-    .slice(2)
-    .map((v) => `${v}`)
-    .join(' '), schema);
+const [flags, invalid, unrecognised, rest] = flagParser_1.parseFlags(process.argv.slice(2).join(' '), schema);
+console.log(process.argv);
 if (unrecognised.length || Object.keys(invalid).length) {
     const flag = unrecognised[0] || Object.keys(invalid)[0];
     const type = flag in invalid ? 1 : 2;
@@ -44,10 +42,6 @@ if (!flags.login) {
     Promise.resolve().then(() => tslib_1.__importStar(require('.')));
 }
 else {
-    if (rest) {
-        console.error('Login shell cannot have trailing arguments. (', rest, ')');
-        process.exit(1);
-    }
     if (!flags.nologo)
         console.log('Qshell\nCopyright (C) 2021 Splatterxl. Some code by Vendicated.\n');
     runner_1.run(parse_1.parse(path_1.default.join(__dirname, '..', 'lib', 'std.qsh'))[0], { name: 'stdlib', contents: '' });

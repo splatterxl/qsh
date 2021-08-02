@@ -4,7 +4,6 @@ const tslib_1 = require("tslib");
 const parse_1 = require("./parse");
 const runner_1 = require("./runner");
 const path_1 = tslib_1.__importDefault(require("path"));
-const child_process_1 = tslib_1.__importDefault(require("child_process"));
 const file = process.argv[2];
 if (file) {
     const result = parse_1.parse(file);
@@ -15,9 +14,6 @@ if (file) {
     runner_1.run(files, { contents: result[2], name: file });
 }
 else {
-    const proc = child_process_1.default.spawn('node', [path_1.default.join(__dirname, 'login'), '--login'], {
-        stdio: 'inherit',
-        cwd: process.cwd(),
-    });
-    proc.on('exit', process.exit);
+    console.error('Use --login for login shells.');
+    process.exit(1);
 }
