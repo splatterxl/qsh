@@ -1,6 +1,7 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`3a6faeb`](https://github.com/nearlySplat/qsh/commit/3a6faebdff451645ebd818144cb0aa9e22710fe3)\] Add renovate.json (#3)
 - \[[`1c64245`](https://github.com/nearlySplat/qsh/commit/1c64245f5bf924bad8cdf7642f04b4df76eb4c90)\] feat: login shell
 - \[[`ddc32d2`](https://github.com/nearlySplat/qsh/commit/ddc32d2b348fab40541c5e3d31bd2e1f3482079f)\] fix: catch errors better
 - \[[`379cffb`](https://github.com/nearlySplat/qsh/commit/379cffbd5ffb210716751516a3749dc8a4808bcd)\] docs: improve specification
