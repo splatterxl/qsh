@@ -1,6 +1,7 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`fb99f80`](https://github.com/nearlySplat/qsh/commit/fb99f80bd677518b060f49c875e8be5893d3fd7b)\] chore(deps): pin dependencies (#5)
 - \[[`a5f5510`](https://github.com/nearlySplat/qsh/commit/a5f55103a44cc1743a653d9356aa1278859421d2)\] chore(deps): pin dependencies (#4)
 - \[[`3a6faeb`](https://github.com/nearlySplat/qsh/commit/3a6faebdff451645ebd818144cb0aa9e22710fe3)\] Add renovate.json (#3)
 - \[[`1c64245`](https://github.com/nearlySplat/qsh/commit/1c64245f5bf924bad8cdf7642f04b4df76eb4c90)\] feat: login shell
