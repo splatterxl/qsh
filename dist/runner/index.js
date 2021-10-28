@@ -5,9 +5,9 @@ const tslib_1 = require("tslib");
 const parser_1 = require("../parser");
 const errors_1 = require("../parser/errors");
 const tokens_1 = require("../parser/tokens");
-const en_json_1 = tslib_1.__importDefault(require("../parser/i18n/en.json"));
-const child_process_1 = tslib_1.__importDefault(require("child_process"));
-const chalk_1 = tslib_1.__importDefault(require("chalk"));
+const en_json_1 = (0, tslib_1.__importDefault)(require("../parser/i18n/en.json"));
+const child_process_1 = (0, tslib_1.__importDefault)(require("child_process"));
+const chalk_1 = (0, tslib_1.__importDefault)(require("chalk"));
 const functions = new Map();
 const vars = new Map();
 async function run(files, fileData) {
@@ -17,7 +17,7 @@ async function run(files, fileData) {
             if (branch instanceof parser_1.Token)
                 continue;
             if (branch.type !== tokens_1.BlockTypes.Statement) {
-                console.log(parser_1.formatError(new parser_1.QshSyntaxError(errors_1.SyntaxErrors.InvalidAST, 
+                console.log((0, parser_1.formatError)(new parser_1.QshSyntaxError(errors_1.SyntaxErrors.InvalidAST, 
                 // @ts-ignore
                 en_json_1.default[errors_1.SyntaxErrors[errors_1.SyntaxErrors.InvalidAST]], true, 0, 0, 1), fileData.contents, fileData.name));
                 process.exit(4);
@@ -50,11 +50,11 @@ async function runCommand(branch) {
             eval(args[0].value);
         }
         catch (e) {
-            console.error('[Embedded JS]', e.toString(), chalk_1.default `\n\t{grey at:}\t`, args[0].value);
+            console.error('[Embedded JS]', e.toString(), (0, chalk_1.default) `\n\t{grey at:}\t`, args[0].value);
         }
     }
     else if (command.value === 'fn') {
-        functions.set(args.shift().value, parser_1.parse(args[0].value)[0]);
+        functions.set(args.shift().value, (0, parser_1.parse)(args[0].value)[0]);
     }
     else if (functions.has(command.value)) {
         const file = functions.get(command.value)[0];

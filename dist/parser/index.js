@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.formatError = exports.parseFile = exports.parse = exports.Token = exports.Block = exports.QshSyntaxError = void 0;
 const tslib_1 = require("tslib");
-const fs_1 = tslib_1.__importDefault(require("fs"));
+const fs_1 = (0, tslib_1.__importDefault)(require("fs"));
 const tokens_1 = require("./tokens");
 const errors_1 = require("./errors");
-const en_json_1 = tslib_1.__importDefault(require("./i18n/en.json"));
-const chalk_1 = tslib_1.__importDefault(require("chalk"));
+const en_json_1 = (0, tslib_1.__importDefault)(require("./i18n/en.json"));
+const chalk_1 = (0, tslib_1.__importDefault)(require("chalk"));
 const exitcodes_1 = require("../exitcodes");
 class QshSyntaxError {
     code;
@@ -368,6 +368,6 @@ function formatError(error, data, file) {
             '\t    \t' +
             ' '.repeat(error.char) +
             chalk_1.default.redBright('^'.repeat((error.ends || line.length - 1) - error.char));
-    return chalk_1.default `{blueBright ${file.replace(/^\.\//g, '')}}{grey :}{yellow ${error.line}}{grey :}{yellow ${error.char}} ${error.fatal ? chalk_1.default.ansi256(165)('FATAL ') : ''}{redBright error} {grey [}{yellowBright ${error.code}}{grey ]:} ${error.message}\n\t{grey at:} \t${line}`;
+    return (0, chalk_1.default) `{blueBright ${file.replace(/^\.\//g, '')}}{grey :}{yellow ${error.line}}{grey :}{yellow ${error.char}} ${error.fatal ? chalk_1.default.ansi256(165)('FATAL ') : ''}{redBright error} {grey [}{yellowBright ${error.code}}{grey ]:} ${error.message}\n\t{grey at:} \t${line}`;
 }
 exports.formatError = formatError;
