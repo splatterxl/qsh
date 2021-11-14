@@ -1,6 +1,8 @@
 <!-- since 2021-07-27T22:09:04+01:00 -->
 # Changes since `root`
 
+- \[[`832ed45`](https://github.com/nearlySplat/qsh/commit/832ed45d74415ebc39ef8660f82809a545d93baf)\] chore(deps): update actions/checkout action to v2.4.0 (#15)
+- \[[`865a8d5`](https://github.com/nearlySplat/qsh/commit/865a8d5f717fa7268111cb97a9fd57ae3f0f05b2)\] chore(deps): update dependency @types/node to v16.11.7 (#17)
 - \[[`cdfece4`](https://github.com/nearlySplat/qsh/commit/cdfece4581727da9b88703599d115ba9cde8d36c)\] chore(deps): update dependency @types/node to v16.11.6 (#16)
 - \[[`46397b3`](https://github.com/nearlySplat/qsh/commit/46397b3400d4534c85bbc082ad3b66136237e4fa)\] chore(deps): update dependency typescript to v4.4.2 (#8)
 - \[[`c5e7530`](https://github.com/nearlySplat/qsh/commit/c5e7530152dd18ffc04c3b9aa8a2d5bc53d1de60)\] chore(deps): update typescript-eslint monorepo to v4.30.0 (#7)
