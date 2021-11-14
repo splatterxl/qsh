@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@splatterxl/tsconfig': 1.0.0
-  '@types/node': 16.11.6
+  '@types/node': 16.11.7
   '@typescript-eslint/eslint-plugin': 4.30.0
   '@typescript-eslint/parser': 4.30.0
   chalk: ^4.1.1
@@ -17,7 +17,7 @@ dependencies:
 
 devDependencies:
   '@splatterxl/tsconfig': 1.0.0
-  '@types/node': 16.11.6
+  '@types/node': 16.11.7
   '@typescript-eslint/eslint-plugin': 4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3
   '@typescript-eslint/parser': 4.30.0_eslint@7.32.0+typescript@4.4.2
   eslint: 7.32.0
@@ -107,8 +107,8 @@ packages:
     resolution: {integrity: sha512-YSBPTLTVm2e2OoQIDYx8HaeWJ5tTToLH67kXR7zYNGupXMEHa2++G8k+DczX2cFVgalypqtyZIcU19AFcmOpmg==}
     dev: true
 
-  /@types/node/16.11.6:
-    resolution: {integrity: sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==}
+  /@types/node/16.11.7:
+    resolution: {integrity: sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3:
