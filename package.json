@@ -18,7 +18,7 @@
   "author": "Splatterxl <splatterxl@outlook.ie>",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@splatterxl/tsconfig": "1.0.0",
+    "@splatterxl/tsconfig": "1.1.1",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "5.8.1",
     "@typescript-eslint/parser": "5.8.1",

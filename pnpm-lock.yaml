@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@splatterxl/tsconfig': 1.0.0
+  '@splatterxl/tsconfig': 1.1.1
   '@types/node': 16.11.7
   '@typescript-eslint/eslint-plugin': 5.8.1
   '@typescript-eslint/parser': 5.8.1
@@ -16,7 +16,7 @@ dependencies:
   tslib: 2.3.0
 
 devDependencies:
-  '@splatterxl/tsconfig': 1.0.0
+  '@splatterxl/tsconfig': 1.1.1
   '@types/node': 16.11.7
   '@typescript-eslint/eslint-plugin': 5.8.1_0242901da47b3c4bd76a0beaaf62c1e2
   '@typescript-eslint/parser': 5.8.1_eslint@8.6.0+typescript@4.4.2
@@ -79,8 +79,9 @@ packages:
       fastq: 1.11.1
     dev: true
 
-  /@splatterxl/tsconfig/1.0.0:
-    resolution: {integrity: sha512-T1sNEzXe5vmeKyKOPF1bEYSR8mgteyGLDEgPSdPs6M9oHqD7yjdc0wH+dc52nfFwhTyHFeCGjpq97qNWtOutFA==}
+  /@splatterxl/tsconfig/1.1.1:
+    resolution: {integrity: sha512-anf9YMKGxb6UDhdwE6NC29epUm6HG9kRgopYRDMiIgZutjZGPmW1m0dFvTsKpersLRtUIN/im2FQWOnzNB0x/g==}
+    engines: {node: '>=14'}
     dev: true
 
   /@types/json-schema/7.0.9:
